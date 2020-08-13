@@ -42,7 +42,7 @@ class Snipper extends React.Component{
             height: screenSize.height,
             frame : false,
             transparent : true,
-            kiosk: false
+            kiosk: true
         });
 
         snipWindow.on('close', () => {
@@ -267,7 +267,7 @@ class Snipper extends React.Component{
                                 <img height="25"
                                     src={require('../res/images/logo-big.png')}
                                     alt=""/>
-                                Snipper
+                                SNIPPER TOOL
                             </h2>
                         </div>
 

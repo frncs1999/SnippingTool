@@ -4,7 +4,7 @@ import Snipper from './Snipper';
 
 const render = (Component) => {
   ReactDOM.render(
-    <Component />,
+      <Component />,
     document.getElementById('root'),
   );
 };
@@ -12,9 +12,9 @@ const render = (Component) => {
 render(Snipper);
 
 if (module.hot) {
-    module.hot.accept('./Snipper', () => {
-      // eslint-disable-next-line
-      const nextApp = require('./Snipper').default;
-      render(nextApp);
-    });
-  }
+  module.hot.accept('./Snipper', () => {
+    // eslint-disable-next-line
+    const nextApp = require('./Snipper').default;
+    render(nextApp);
+  });
+}

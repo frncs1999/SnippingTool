@@ -7,7 +7,7 @@ const style = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    border: 'solid 2px #3a38d2',
+    border: 'solid 2px black',
     margin: '5px'
 };
 
@@ -45,11 +45,11 @@ class Cropper extends React.Component{
                     <button
                         className="btn btn-primary"
                         onClick={this.props.snip.bind(this, this.state)}
-                    >Capture</button>
+                    >CAPTURE</button>
                     <button
                         onClick={this.props.destroySnipView.bind(this)}
                         className="btn btn-primary"
-                    >Cancel</button>
+                    >CANCEL</button>
                 </div>
             </Rnd>
         )

@@ -1,0 +1,64 @@
+
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Snipper</title>
+</head>
+ 
+<body>
+  <div id="root" class="h-100"></div>
+  <script>
+    {
+      if (process.env.NODE_ENV) {
+        const bundle = document.createElement('script');
+        const port = 9000;
+        bundle.src = 'http://localhost:' + port + '/app.bundle.js';
+        document.body.appendChild(bundle);
+ 
+        const devServer = document.createElement('script');
+        devServer.src = 'http://localhost:' + port + '/webpack-dev-server.js';
+        document.body.appendChild(devServer);
+      } else {
+        let headHTML = document.getElementsByTagName('head')[0].innerHTML;
+        headHTML += '<link type="text/css" rel="stylesheet" href="css/main.css">';
+        document.getElementsByTagName('head')[0].innerHTML = headHTML;
+ 
+        const bundle = document.createElement('script');
+        bundle.src = 'app.bundle.js';
+        document.body.appendChild(bundle);
+      }
+    }
+  </script>
+</body>
+</html>

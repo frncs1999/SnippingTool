@@ -4,7 +4,7 @@ import Snipper from './Snipper';
 
 const render = (Component) => {
   ReactDOM.render(
-      <Component />,
+    <Component />,
     document.getElementById('root'),
   );
 };

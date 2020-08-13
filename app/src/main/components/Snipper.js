@@ -42,7 +42,7 @@ class Snipper extends React.Component{
             height: screenSize.height,
             frame : false,
             transparent : true,
-            kiosk: true
+            kiosk: false
         });
 
         snipWindow.on('close', () => {

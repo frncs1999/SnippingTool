@@ -19,8 +19,10 @@ body #root {
   body #root .snip-controls {
     padding-bottom: 20px;
     margin-top: 10px; }
-    body #root .snip-controls h2 img {
-      margin-right: 10px; }
+    body #root .snip-controls h2 {
+      -webkit-app-region: drag; }
+      body #root .snip-controls h2 img {
+        margin-right: 10px; }
     body #root .snip-controls .close {
       position: absolute;
       top: 0px;

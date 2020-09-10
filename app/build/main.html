@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <h1>💖 Hello World!</h1>
+    <p>Welcome to your Electron application.</p>
+    <button id="fSBtn">Capture Fullscreen</button>
+
+    <script>
+        const fSBtn = document.getElementById('fSBtn')
+        const electron = require('electron');
+        const remote = electron.remote
+        const app = electron.app;
+        const BrowserWindow = remote.BrowserWindow;
+        const path = require('path');
+        const url = require('url');
+        const dev = process.env.NODE_ENV === 'development';
+
+        let mainWindow
+        
+function createWindow() {
+    mainWindow = new BrowserWindow({
+        width: dev ? 800 : 420,
+        height: dev ? 800 : 200,
+        icon: path.join(__dirname, '/res/images/logo.png'),
+        //frame: false,
+    });
+    mainWindow.setMenu(null);
+    mainWindow.setResizable(false);
+
+    // and load the index.html of the app.
+    mainWindow.loadURL(url.format({
+        pathname: path.join(__dirname, 'index.html'),
+        protocol: 'file:',
+        slashes: true,
+    }) + '?main');
+
+    if (dev) {
+        // Open the DevTools.
+        mainWindow.webContents.openDevTools();
+        const {
+            default: installExtension,
+            REACT_DEVELOPER_TOOLS,
+            REDUX_DEVTOOLS,
+        } = require('electron-devtools-installer'); // eslint-disable-line
+        installExtension(REACT_DEVELOPER_TOOLS)
+            .then(name => console.log(`Added Extension:  ${name}`))
+            .catch(err => console.log('An error occurred: ', err));
+
+        installExtension(REDUX_DEVTOOLS)
+            .then(name => console.log(`Added Extension:  ${name}`))
+            .catch(err => console.log('An error occurred: ', err));
+    }
+
+    mainWindow.on('closed', () => {
+        mainWindow = null
+    })
+}
+
+
+
+
+
+fSBtn.addEventListener('click', () => {
+mainW = remote.getCurrentWindow();
+createWindow()
+mainW.close()
+})
+    </script>
+  </body>
+</html>
